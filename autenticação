@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Link Protector</title>
+</head>
+<body>
+    <h1>Bem-vindo!</h1>
+    <p>Para baixar o pack de músicas, faça login e siga nosso perfil no Instagram.</p>
+    <button id="connectButton" onclick="redirectToInstagram()">Conectar com Instagram</button>
+    <button id="downloadButton" style="display:none;" onclick="downloadFile()">Download</button>
+
+    <script>
+        function redirectToInstagram() {
+            window.location.href = "https://api.instagram.com/oauth/authorize?client_id=djguiialves&redirect_uri=https://www.mediafire.com/file/26esnlze5ambis9/BATATAIS_CAR_SHOW_-_ED_10_ANOS_-_DJ_GUII_ALVES.rar/file&scope=user_profile,user_media&response_type=code";
+        }
+
+        function downloadFile() {
+            // Chame um endpoint no servidor para verificar se o usuário seguiu e liberar o arquivo
+            fetch('/download', { method: 'POST' })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'seu_arquivo.zip';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Erro ao baixar o arquivo:', error));
+        }
+    </script>
+</body>
+</html>
