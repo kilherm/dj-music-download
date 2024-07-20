@@ -20,8 +20,9 @@
             max-width: 800px;
             margin: auto;
             padding: 20px;
-            background-color: rgba(45, 52, 69, 0.8); /* Fundo preto transparente */
+            background-color: rgba(45, 52, 69, 0.9); /* Fundo preto transparente */
             border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar o container */
         }
         h1, h2 {
             color: #E9703E;
@@ -45,6 +46,10 @@
             padding: 12px 24px;
             border-radius: 4px;
             font-size: 17px;
+            transition: background-color 0.3s;
+        }
+        .button a:hover {
+            background-color: #d9622b;
         }
         .input-field {
             margin: 10px 0;
@@ -105,7 +110,7 @@
         <p>Para liberar o botão para baixar, apoie o trabalho do DJ no Instagram! Rápido e fácil — Clique abaixo em conectar no Instagram e siga para a próxima etapa.</p>
 
         <div class="button">
-            <a href="#" id="connect-button" onclick="connectInstagram()">Conectar no Instagram</a>
+            <a href="https://www.instagram.com/djguiialves/" target="_blank">Conectar no Instagram</a>
         </div>
 
         <div id="instagram-response" style="display: none;">
