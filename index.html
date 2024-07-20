@@ -164,47 +164,39 @@
                                     <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
                                         bgcolor="#E9703E">
                                         <a target="_blank" style="text-decoration: underline;
-                                        color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
-                                           href="#" onclick="connectInstagram(event)">
-                                            Conectar no Instagram
-                                        </a>
+                                        color: #ffffff; font-weight: 700; font-family: sans-serif; font-size: 15px; line-height: 20px;"
+                                           href="https://www.instagram.com/djguiialves/">Conectar no Instagram</a>
                                     </td>
                                 </tr>
                             </table>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px; padding-bottom: 20px;">
-                        <img border="0" vspace="0" hspace="0"
-                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-white.png"
-                             alt="Hero White" title="Hero White"
-                             width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 40px; padding-bottom: 40px;" class="footer">
-                        <p style="font-size: 12px; color: #FFFFFF;">&copy; 2024 DJ Guii Alves. Todos os direitos reservados.</p>
-                        <audio controls>
-                            <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-                            Seu navegador não suporta o elemento de áudio.
-                        </audio>
-                    </td>
-                </tr>
             </table>
+            <!-- / WRAPPER -->
         </td>
     </tr>
 </table>
 
-<!-- Script to handle Instagram connection -->
+<!-- FOOTER -->
+<div class="footer">
+    <audio controls autoplay loop>
+        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</div>
+<!-- / FOOTER -->
+
 <script>
-    function connectInstagram(event) {
-        event.preventDefault();
-        window.open('https://www.instagram.com/djguiialves/', '_blank'); // Abre o Instagram em uma nova aba
+    document.getElementById('connect-button').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do link
+        // Abre o Instagram em uma nova guia
+        window.open('https://www.instagram.com/djguiialves/', '_blank');
+        // Atualiza a página atual após 5 segundos
         setTimeout(function() {
-            window.location.href = 'https://kilherm.github.io/dj-music-download/sequencia.html'; // Redireciona após 5 segundos
+            window.location.href = 'https://kilherm.github.io/dj-music-download/sequencia.html';
         }, 5000);
-    }
+    });
 </script>
 
 </body>
