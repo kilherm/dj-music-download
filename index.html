@@ -87,27 +87,15 @@
         .blink-text {
             animation: blink 1s step-start infinite;
         }
-        /* Scrolling text effect */
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        .scrolling-text {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            box-sizing: border-box;
-            animation: scroll 10s linear infinite;
-            font-size: 14px;
-            color: #FFFFFF;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
+
+<!-- Music player -->
+<audio id="background-music" autoplay loop>
+    <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+</audio>
 
 <!-- SECTION / BACKGROUND -->
 <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%;" class="background">
@@ -186,20 +174,12 @@
                         </a>
                     </td>
                 </tr>
-                <!-- Adding the logo image below the button -->
-                <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px;">
-                        <img border="0" vspace="0" hspace="0"
-                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png"
-                             alt="Logo" title="Logo"
-                             width="150" style="width: 100%; max-width: 150px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
-                    </td>
-                </tr>
                 <tr>
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px; padding-bottom: 20px;">
-                        <div class="scrolling-text">
-                            Contato: (16) 98141-1776 - Instagram: @djguiialves
-                        </div>
+                        <img border="0" vspace="0" hspace="0"
+                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-white.png"
+                             alt="Hero White" title="Hero White"
+                             width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
                     </td>
                 </tr>
                 <tr>
