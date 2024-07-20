@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no"/>
-    <title>O Brabo dos Mega!</title>
+    <title>O Brabo do Mega!</title>
     <style>
         /* Reset styles */
         body {
@@ -15,6 +14,7 @@
             height: 100% !important;
             background-color: #2D3445;
             color: #FFFFFF;
+            font-family: Arial, sans-serif;
         }
         body, table, td, div, p, a {
             -webkit-font-smoothing: antialiased;
@@ -61,6 +61,9 @@
         }
         .footer a, .footer a:hover {
             color: #828999;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -133,12 +136,14 @@
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
                         padding-top: 25px;
                         padding-bottom: 5px;" class="button">
-                        <a href="#" id="connect-button">
+                        <a href="#" id="connect-button" style="text-decoration: underline;">
                             <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;">
                                 <tr>
                                     <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
                                         bgcolor="#E9703E">
-                                        <a target="_blank" style="text-decoration: underline; color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;" id="connect-link">
+                                        <a target="_blank" style="text-decoration: underline;
+                                        color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
+                                           href="#" onclick="connectInstagram(event)">
                                             Conectar no Instagram
                                         </a>
                                     </td>
@@ -147,93 +152,12 @@
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td align="center" valign="top" id="message" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 17px; font-weight: 400; line-height: 160%; padding-top: 15px; color: #FFFFFF; font-family: sans-serif; display: none;">
-                        <!-- Message will be displayed here after Instagram connection -->
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" id="follow-button" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; padding-top: 25px; padding-bottom: 5px; display: none;">
-                        <a href="#" id="follow-button-link">
-                            <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;">
-                                <tr>
-                                    <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;" bgcolor="#E9703E">
-                                        <a target="_blank" style="text-decoration: underline; color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;">
-                                            Seguir ♥
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-                </tr>
+                <!-- Outros elementos -->
             </table>
         </td>
     </tr>
 </table>
 
-<!-- JavaScript -->
 <script>
-    const clientId = '1232270261472527'; // Substitua pelo seu ID do cliente
-    const clientSecret = 'e9befc1caedf7fbd8e37a43c2a3879b6'; // Substitua pela sua chave secreta
-    const redirectUri = 'https://kilherm.github.io/dj-music-download/'; // Substitua pelo seu URI de redirecionamento
-
-    document.getElementById('connect-button').addEventListener('click', function() {
-        // Redirecionar o usuário para o Instagram para autenticação
-        const authUrl = `https://api.instagram.com/oauth/authorize/?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
-        window.location.href = authUrl;
-    });
-
-    // Verifica o código de autorização na URL e troca por um token de acesso
-    function getAccessToken(authCode) {
-        return fetch('https://api.instagram.com/oauth/access_token', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                client_id: clientId,
-                client_secret: clientSecret,
-                grant_type: 'authorization_code',
-                redirect_uri: redirectUri,
-                code: authCode,
-            }),
-        })
-        .then(response => response.json())
-        .then(data => data.access_token);
-    }
-
-    // Função para verificar o status do follow
-    function checkFollowStatus(accessToken) {
-        return fetch(`https://graph.instagram.com/me?fields=id,username&access_token=${accessToken}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Adicione lógica para verificar se o usuário está seguindo sua conta
-        });
-    }
-
-    // Verifica o código de autorização e faz o login
-    window.addEventListener('load', async function() {
-        const queryParams = new URLSearchParams(window.location.search);
-        const code = queryParams.get('code');
-
-        if (code) {
-            const accessToken = await getAccessToken(code);
-            document.getElementById('message').innerText = "Obrigado por se conectar ao Instagram, agora falta apenas uma etapa para ter acesso a todos os meus CD's, me siga no Instagram para ajudar o meu trabalho";
-            document.getElementById('message').style.display = 'block';
-            document.getElementById('follow-button').style.display = 'block';
-
-            document.getElementById('follow-button-link').addEventListener('click', async function(event) {
-                event.preventDefault();
-                await checkFollowStatus(accessToken);
-                document.getElementById('message').innerText = "Obrigado por me seguir, assim você ajuda meu trabalho. Você já pode se beneficiar de todos meus CDs";
-                document.getElementById('follow-button').style.display = 'none';
-                // Adicione o link para download do CD aqui
-            });
-        }
-    });
-</script>
-
-</body>
-</html>
+    document.addEventListener("DOMContentLoaded", function() {
+        var audio = document.getElementById('background-music
