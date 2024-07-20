@@ -115,7 +115,7 @@
     </audio>
 
     <div class="container">
-        <div id="welcome" style="display: block;">
+        <div id="welcome" style="display: none;">
             <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png" width="150" height="150" alt="Logo">
             <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" width="340" alt="Hero Image">
             
@@ -123,7 +123,7 @@
             <p>Você terá acesso a todos os CD's daqui a pouco, peço a você para fortalecer o meu trabalho me seguindo no Instagram.</p>
             
             <div class="button">
-                <a href="https://www.instagram.com/djguiialves/" target="_blank">Conectar no Instagram</a>
+                <a id="connect-btn" href="https://www.instagram.com/djguiialves/" target="_blank" onclick="updateState()">Conectar no Instagram</a>
             </div>
         </div>
 
@@ -156,7 +156,13 @@
     </footer>
 
     <script>
+        function updateState() {
+            // Salva o estado em localStorage
+            localStorage.setItem('hasFollowed', 'false');
+        }
+
         function alreadyFollowed() {
+            localStorage.setItem('hasFollowed', 'true');
             document.getElementById('follow-check').style.display = 'none';
             document.getElementById('follow-confirmation').style.display = 'block';
         }
@@ -169,6 +175,19 @@
                 document.getElementById('follow-confirmation').style.display = 'none';
                 document.getElementById('final-message').style.display = 'block';
             }, 2000);
+        }
+
+        // Verifica o estado ao carregar a página
+        window.onload = function() {
+            if (localStorage.getItem('hasFollowed') === 'true') {
+                document.getElementById('welcome').style.display = 'none';
+                document.getElementById('follow-check').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'block';
+            } else {
+                document.getElementById('welcome').style.display = 'block';
+                document.getElementById('follow-check').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'none';
+            }
         }
     </script>
 </body>
