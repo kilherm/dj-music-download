@@ -3,198 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Brabo do Mega!</title>
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Atualize o caminho e formato conforme necessário -->
+    <title>Conectar no Instagram</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background-color: #2D3445;
+            color: #FFFFFF;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Fundo cinza claro */
-            color: #FFFFFF;
-            font-family: Arial, sans-serif;
+            text-align: center;
         }
         .container {
-            width: 90%;
-            max-width: 800px;
-            margin: auto;
             padding: 20px;
-            background-color: rgba(45, 52, 69, 0.8); /* Fundo preto transparente */
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar o container */
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        h1, h2 {
-            color: #E9703E;
-            margin: 10px 0;
-        }
-        a {
-            color: #E9703E;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
         }
         .button {
-            margin: 20px 0;
-        }
-        .button a, .button button {
-            display: inline-block;
-            text-decoration: none;
-            color: #FFFFFF;
             background-color: #E9703E;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-size: 17px;
-            transition: background-color 0.3s;
+            color: #FFFFFF;
             border: none;
+            padding: 10px 20px;
+            font-size: 18px;
             cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
         }
-        .button a:hover, .button button:hover {
-            background-color: #d9622b;
-        }
-        .input-field {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 4px;
-            border: 1px solid #E9703E;
-            width: calc(100% - 22px); /* Ajusta a largura para o padding */
-            font-size: 16px;
-            display: inline-block;
-        }
-        footer {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 14px;
-        }
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        .typing-effect {
-            display: inline;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid #E9703E;
-            animation: typing 4s steps(30, end) 1;
-        }
-        .loading {
-            border: 2px solid #E9703E;
-            border-radius: 4px;
-            border-top: 2px solid transparent;
-            width: 24px;
-            height: 24px;
-            display: inline-block;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* Ajuste para dispositivos móveis */
-        @media (max-width: 600px) {
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-            .input-field {
-                font-size: 14px;
-            }
-            .button a, .button button {
-                font-size: 15px;
-            }
+        .button:hover {
+            background-color: #d8602b;
         }
     </style>
 </head>
 <body>
-    <!-- Music player -->
-    <audio id="background-music" autoplay loop>
-        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-
     <div class="container">
-        <!-- Welcome section -->
-        <div id="welcome">
-            <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png" width="150" height="150" alt="Logo">
-            <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" width="340" alt="Hero Image">
-            <h2>Que bom ter você aqui! Seja bem-vindo!</h2>
-            <p>Você terá acesso a todos os CD's daqui a pouco, peço a você para fortalecer o meu trabalho me seguindo no Instagram.</p>
-            <div class="button">
-                <a id="connect-btn" href="https://www.instagram.com/djguiialves/" target="_blank">Conectar no Instagram</a>
-            </div>
-        </div>
-
-        <!-- Follow check section -->
-        <div id="follow-check" style="display: none;">
-            <h2>Você foi direcionado ao Instagram do meu perfil, me siga para obter o link dos CD's</h2>
-            <div class="button">
-                <button onclick="alreadyFollowed()">Já segui ♥</button>
-                <button onclick="window.location.href='https://www.instagram.com/djguiialves/'">Ainda não segui</button>
-            </div>
-        </div>
-
-        <!-- Follow confirmation section -->
-        <div id="follow-confirmation" style="display: none;">
-            <h2>Obrigado por seguir, isso ajuda muito meu trabalho.</h2>
-            <p>Coloque seu nome de usuário abaixo para a página verificar se me segue:</p>
-            <input type="text" class="input-field" id="instagram-username" placeholder="Nome de usuário do Instagram">
-            <button class="button" onclick="verifyFollow()">OK</button>
-            <div id="loading" style="display: none;" class="loading"></div>
-        </div>
-
-        <!-- Final message section -->
-        <div id="final-message" style="display: none;">
-            <h2>Obrigado! Aproveite o conteúdo!</h2>
-            <p><a href="#">Link 1</a></p>
-            <p><a href="#">Link 2</a></p>
-            <p><a href="#">Link 3</a></p>
-        </div>
+        <img src="logo.png" alt="Logo" width="150">
+        <h1>Que bom ter você aqui! Seja bem-vindo!</h1>
+        <p>Você terá acesso a todos os CD's daqui a pouco, peço a você para fortalecer o meu trabalho me seguindo no Instagram.</p>
+        <a href="https://www.instagram.com/djguiialves/" target="_blank" class="button" onclick="window.close();">Conectar no Instagram</a>
     </div>
-
-    <footer>
-        &copy; 2024 Seu Nome ou Nome da Sua Empresa
-    </footer>
-
     <script>
-        // Inicializa a visualização da seção de boas-vindas
-        window.onload = function() {
-            // Verifica se o usuário já seguiu e atualiza a visualização
-            if (sessionStorage.getItem('hasFollowed') === 'true') {
-                document.getElementById('welcome').style.display = 'none';
-                document.getElementById('follow-check').style.display = 'none';
-                document.getElementById('follow-confirmation').style.display = 'block';
-            } else {
-                document.getElementById('welcome').style.display = 'block';
-                document.getElementById('follow-check').style.display = 'none';
-                document.getElementById('follow-confirmation').style.display = 'none';
-                document.getElementById('final-message').style.display = 'none';
-            }
-        }
-
-        function alreadyFollowed() {
-            // Marca o usuário como seguido na sessão
-            sessionStorage.setItem('hasFollowed', 'true');
-            document.getElementById('follow-check').style.display = 'none';
-            document.getElementById('follow-confirmation').style.display = 'block';
-        }
-
-        function verifyFollow() {
-            // Exibe o carregamento e, depois de 2 segundos, exibe a mensagem final
-            document.querySelector('.button').style.display = 'none';
-            document.getElementById('loading').style.display = 'inline-block';
-            setTimeout(() => {
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('follow-confirmation').style.display = 'none';
-                document.getElementById('final-message').style.display = 'block';
-            }, 2000);
-        }
+        // Após a abertura do Instagram, redireciona para a nova página
+        window.open('https://www.instagram.com/djguiialves/', '_blank');
+        setTimeout(function() {
+            window.location.href = 'sequencia.html';
+        }, 1000); // Aguarda 1 segundo para garantir que a nova página tenha tempo de abrir
     </script>
 </body>
 </html>
