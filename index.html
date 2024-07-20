@@ -133,4 +133,65 @@
             <h2>Você foi direcionado ao Instagram do meu perfil, me siga para obter o link dos CD's</h2>
             <div class="button">
                 <button onclick="alreadyFollowed()">Já segui ♥</button>
-  
+                <button onclick="window.location.href='https://www.instagram.com/djguiialves/'">Ainda não segui</button>
+            </div>
+        </div>
+
+        <!-- Follow confirmation section -->
+        <div id="follow-confirmation" style="display: none;">
+            <h2>Obrigado por seguir, isso ajuda muito meu trabalho.</h2>
+            <p>Coloque seu nome de usuário abaixo para a página verificar se me segue:</p>
+            <input type="text" class="input-field" id="instagram-username" placeholder="Nome de usuário do Instagram">
+            <button class="button" onclick="verifyFollow()">OK</button>
+            <div id="loading" style="display: none;" class="loading"></div>
+        </div>
+
+        <!-- Final message section -->
+        <div id="final-message" style="display: none;">
+            <h2>Obrigado! Aproveite o conteúdo!</h2>
+            <p><a href="#">Link 1</a></p>
+            <p><a href="#">Link 2</a></p>
+            <p><a href="#">Link 3</a></p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Seu Nome ou Nome da Sua Empresa
+    </footer>
+
+    <script>
+        // Inicializa a visualização da seção de boas-vindas
+        window.onload = function() {
+            // Verifica se o usuário já seguiu e atualiza a visualização
+            if (sessionStorage.getItem('hasFollowed') === 'true') {
+                document.getElementById('welcome').style.display = 'none';
+                document.getElementById('follow-check').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'block';
+            } else {
+                document.getElementById('welcome').style.display = 'block';
+                document.getElementById('follow-check').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'none';
+                document.getElementById('final-message').style.display = 'none';
+            }
+        }
+
+        function alreadyFollowed() {
+            // Marca o usuário como seguido na sessão
+            sessionStorage.setItem('hasFollowed', 'true');
+            document.getElementById('follow-check').style.display = 'none';
+            document.getElementById('follow-confirmation').style.display = 'block';
+        }
+
+        function verifyFollow() {
+            // Exibe o carregamento e, depois de 2 segundos, exibe a mensagem final
+            document.querySelector('.button').style.display = 'none';
+            document.getElementById('loading').style.display = 'inline-block';
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'none';
+                document.getElementById('final-message').style.display = 'block';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
