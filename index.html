@@ -13,9 +13,11 @@
             min-width: 100%;
             width: 100% !important;
             height: 100% !important;
-            background-color: #2D3445;
+            background-color: rgba(45, 52, 69, 0.8); /* Background with transparency */
             color: #FFFFFF;
             font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
         }
         body, table, td, div, p, a {
             -webkit-font-smoothing: antialiased;
@@ -87,12 +89,43 @@
         .blink-text {
             animation: blink 1s step-start infinite;
         }
+        /* Scrolling text effect */
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: scroll 10s linear infinite;
+            font-size: 14px;
+            color: #FFFFFF;
+            padding: 0 20px;
+        }
+        /* Background video */
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
     </style>
 </head>
 <body>
 
+<!-- Background video -->
+<video autoplay muted loop class="background-video">
+    <source src="https://github.com/kilherm/dj-music-download/raw/main/video/guuii-alves-video.mp4" type="video/mp4">
+    Seu navegador não suporta o elemento de vídeo.
+</video>
+
 <!-- Music player -->
-<audio id="background-music" autoplay loop>
+<audio controls>
     <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
     Seu navegador não suporta o elemento de áudio.
 </audio>
@@ -155,56 +188,26 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
-                        padding-top: 40px; /* Espaço aumentado abaixo do botão */
-                        padding-bottom: 20px;" class="button">
-                        <a href="#" id="connect-button" style="text-decoration: underline;">
-                            <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;">
-                                <tr>
-                                    <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
-                                        bgcolor="#E9703E">
-                                        <a target="_blank" style="text-decoration: underline;
-                                        color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
-                                           href="#" onclick="connectInstagram(event)">
-                                            Conectar no Instagram
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
+                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 15px; padding-bottom: 15px;">
+                        <a href="#" class="button" style="display: inline-block; padding: 15px 30px; font-size: 18px; font-weight: bold; color: #FFFFFF; background-color: #FF5733; text-decoration: none; border-radius: 5px; text-align: center;">
+                            Conectar no Instagram
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px; padding-bottom: 20px;">
-                        <img border="0" vspace="0" hspace="0"
-                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-white.png"
-                             alt="Hero White" title="Hero White"
-                             width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 40px; padding-bottom: 40px;" class="footer">
-                        <p style="font-size: 12px; color: #FFFFFF;">&copy; 2024 DJ Guii Alves. Todos os direitos reservados.</p>
-                        <audio controls>
-                            <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-                            Seu navegador não suporta o elemento de áudio.
-                        </audio>
-                    </td>
-                </tr>
             </table>
+            <!-- END WRAPPER -->
         </td>
     </tr>
 </table>
 
-<!-- Script to handle Instagram connection -->
-<script>
-    function connectInstagram(event) {
-        event.preventDefault();
-        // Aqui você pode adicionar a lógica para conectar ao Instagram
-        // Por exemplo, abrir uma janela de login, mostrar uma mensagem de sucesso, etc.
-        alert('Funcionalidade de conexão com o Instagram ainda não implementada.');
-    }
-</script>
+<!-- FOOTER -->
+<div class="footer">
+    <audio controls>
+        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</div>
+<!-- END FOOTER -->
 
 </body>
 </html>
