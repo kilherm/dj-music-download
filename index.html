@@ -144,28 +144,8 @@
                                         bgcolor="#E9703E">
                                         <a target="_blank" style="text-decoration: underline;
                                         color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
-                                           href="https://www.instagram.com/djguiialves/" onclick="openInstagram(event)">
+                                           href="#" onclick="connectInstagram(event)">
                                             Conectar no Instagram
-                                        </a>
-                                    </td>
-                                </tr>
-                            </table>
-                        </a>
-                    </td>
-                </tr>
-                <tr class="hidden" id="follow-up">
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
-                        padding-top: 25px;
-                        padding-bottom: 5px;">
-                        <a href="sequencia.html" style="text-decoration: underline;">
-                            <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;">
-                                <tr>
-                                    <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
-                                        bgcolor="#28a745">
-                                        <a target="_blank" style="text-decoration: underline;
-                                        color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
-                                           href="sequencia.html">
-                                            Acessar Downloads
                                         </a>
                                     </td>
                                 </tr>
@@ -181,4 +161,23 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        var audio = document.getElementBy
+        var audio = document.getElementById('background-music');
+        if (audio) {
+            audio.play().catch(function(error) {
+                console.log("Erro ao iniciar a música: " + error);
+            });
+        }
+    });
+
+    function connectInstagram(event) {
+        event.preventDefault();
+        window.open("https://www.instagram.com/djguiialves/", "_blank");
+
+        setTimeout(function() {
+            window.location.href = "sequencia.html";
+        }, 5000); // Redireciona após 5 segundos
+    }
+</script>
+
+</body>
+</html>
