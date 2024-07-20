@@ -29,21 +29,27 @@
         .button:hover {
             background-color: #d8602b;
         }
+        .image {
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="logo.png" alt="Logo" width="150">
+        <img src="https://your-domain.com/path/to/logo.png" alt="Logo" width="150" class="image">
+        <img src="https://your-domain.com/path/to/hero-image.png" alt="Hero Image" width="340" class="image">
         <h1>Que bom ter você aqui! Seja bem-vindo!</h1>
         <p>Você terá acesso a todos os CD's daqui a pouco, peço a você para fortalecer o meu trabalho me seguindo no Instagram.</p>
-        <a href="https://www.instagram.com/djguiialves/" target="_blank" class="button" onclick="window.close();">Conectar no Instagram</a>
+        <a href="https://www.instagram.com/djguiialves/" target="_blank" class="button" onclick="abrirInstagram()">Conectar no Instagram</a>
     </div>
     <script>
-        // Após a abertura do Instagram, redireciona para a nova página
-        window.open('https://www.instagram.com/djguiialves/', '_blank');
-        setTimeout(function() {
-            window.location.href = 'sequencia.html';
-        }, 1000); // Aguarda 1 segundo para garantir que a nova página tenha tempo de abrir
+        function abrirInstagram() {
+            window.open('https://www.instagram.com/djguiialves/', '_blank');
+            // Redirecionar para a página de sequência após um atraso
+            setTimeout(function() {
+                window.location.href = 'sequencia.html';
+            }, 2000); // Aguarda 2 segundos para permitir que o Instagram abra
+        }
     </script>
 </body>
 </html>
