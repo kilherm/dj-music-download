@@ -158,15 +158,15 @@
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
                         padding-top: 40px; /* Espaço aumentado abaixo do botão */
                         padding-bottom: 20px;" class="button">
-                        <a href="https://www.instagram.com/djguiialves/" target="_blank" onclick="redirectAfterInstagram(event)">
+                        <a href="#" id="connect-button" style="text-decoration: underline;">
                             <table border="0" cellpadding="0" cellspacing="0" align="center" style="max-width: 240px; min-width: 120px; border-collapse: collapse; border-spacing: 0; padding: 0;">
                                 <tr>
                                     <td align="center" valign="middle" style="padding: 12px 24px; margin: 0; text-decoration: underline; border-collapse: collapse; border-spacing: 0; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px;"
                                         bgcolor="#E9703E">
-                                        <a style="text-decoration: underline;
+                                        <a target="_blank" style="text-decoration: underline;
                                         color: #FFFFFF; font-family: sans-serif; font-size: 17px; font-weight: 400; line-height: 120%;"
-                                           href="#" onclick="redirectAfterInstagram(event)">
-                                            CONECTAR NO INSTAGRAM
+                                           href="#" onclick="connectInstagram(event)">
+                                            Conectar no Instagram
                                         </a>
                                     </td>
                                 </tr>
@@ -182,25 +182,28 @@
                              width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
                     </td>
                 </tr>
+                <tr>
+                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 40px; padding-bottom: 40px;" class="footer">
+                        <p style="font-size: 12px; color: #FFFFFF;">&copy; 2024 DJ Guii Alves. Todos os direitos reservados.</p>
+                        <audio controls>
+                            <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </td>
+                </tr>
             </table>
         </td>
     </tr>
 </table>
 
-<!-- FOOTER -->
-<div class="footer">
-    <audio controls>
-        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-</div>
-
+<!-- Script to handle Instagram connection -->
 <script>
-    function redirectAfterInstagram(event) {
+    function connectInstagram(event) {
         event.preventDefault();
-        setTimeout(() => {
-            window.location.href = 'https://kilherm.github.io/dj-music-download/sequencia.html';
-        }, 1000);
+        window.open('https://www.instagram.com/djguiialves/', '_blank'); // Abre o Instagram em uma nova aba
+        setTimeout(function() {
+            window.location.href = 'https://kilherm.github.io/dj-music-download/sequencia.html'; // Redireciona após 5 segundos
+        }, 5000);
     }
 </script>
 
