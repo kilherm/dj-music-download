@@ -23,6 +23,7 @@
             background-color: rgba(45, 52, 69, 0.9); /* Fundo preto transparente */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar o container */
+            text-align: center;
         }
         h1, h2 {
             color: #E9703E;
@@ -38,17 +39,19 @@
         .button {
             margin: 20px 0;
         }
-        .button a {
+        .button a, .button button {
             display: inline-block;
-            text-decoration: underline;
+            text-decoration: none;
             color: #FFFFFF;
             background-color: #E9703E;
             padding: 12px 24px;
             border-radius: 4px;
             font-size: 17px;
             transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
         }
-        .button a:hover {
+        .button a:hover, .button button:hover {
             background-color: #d9622b;
         }
         .input-field {
@@ -56,8 +59,9 @@
             padding: 10px;
             border-radius: 4px;
             border: 1px solid #E9703E;
-            width: 100%;
+            width: calc(100% - 22px); /* Ajusta a largura para o padding */
             font-size: 16px;
+            display: inline-block;
         }
         footer {
             margin-top: 20px;
@@ -75,6 +79,19 @@
             border-right: 2px solid #E9703E;
             animation: typing 4s steps(30, end) infinite;
         }
+        .loading {
+            border: 2px solid #E9703E;
+            border-radius: 4px;
+            border-top: 2px solid transparent;
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         /* Ajuste para dispositivos móveis */
         @media (max-width: 600px) {
             .container {
@@ -84,7 +101,7 @@
             .input-field {
                 font-size: 14px;
             }
-            .button a {
+            .button a, .button button {
                 font-size: 15px;
             }
         }
@@ -97,30 +114,40 @@
         Your browser does not support the audio element.
     </audio>
 
-    <!-- SECTION / BACKGROUND -->
     <div class="container">
-        <h1>O Brabo do Mega!</h1>
-
-        <!-- Imagem e saudação -->
-        <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png" width="150" height="150" alt="Logo">
-        <h2 class="typing-effect">Seja Bem Vindo!</h2>
-        <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" width="340" alt="Hero Image">
-
-        <p>Baixe agora mesmo os melhores CD's exclusivos!</p>
-        <p>Para liberar o botão para baixar, apoie o trabalho do DJ no Instagram! Rápido e fácil — Clique abaixo em conectar no Instagram e siga para a próxima etapa.</p>
-
-        <div class="button">
-            <a href="https://www.instagram.com/djguiialves/" target="_blank">Conectar no Instagram</a>
+        <div id="welcome" style="display: block;">
+            <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png" width="150" height="150" alt="Logo">
+            <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" width="340" alt="Hero Image">
+            
+            <h2>Que bom ter você aqui! Seja bem-vindo!</h2>
+            <p>Você terá acesso a todos os CD's daqui a pouco, peço a você para fortalecer o meu trabalho me seguindo no Instagram.</p>
+            
+            <div class="button">
+                <a href="https://www.instagram.com/djguiialves/" target="_blank">Conectar no Instagram</a>
+            </div>
         </div>
 
-        <div id="instagram-response" style="display: none;">
-            <p>Obrigado por se conectar ao Instagram. Agora falta apenas uma etapa para ter acesso a todos os meus CDs. Me siga no Instagram para ajudar o meu trabalho.</p>
-            <a href="https://www.instagram.com/djguiialves/" target="_blank">Seguir ♥</a>
+        <div id="follow-check" style="display: none;">
+            <h2>Você foi direcionado ao Instagram do meu perfil, me siga para obter o link dos CD's</h2>
+            <div class="button">
+                <button onclick="alreadyFollowed()">Já segui ♥</button>
+                <button onclick="window.location.href='https://www.instagram.com/djguiialves/'">Ainda não segui</button>
+            </div>
         </div>
 
-        <div id="cd-access" style="display: none;">
-            <p>Obrigado por me seguir, assim você ajuda meu trabalho. Você já pode se beneficiar de todos meus CDs!</p>
-            <a href="#">Acessar CDs</a>
+        <div id="follow-confirmation" style="display: none;">
+            <h2>Obrigado por seguir, isso ajuda muito meu trabalho.</h2>
+            <p>Coloque seu nome de usuário abaixo para a página verificar se me segue:</p>
+            <input type="text" class="input-field" id="instagram-username" placeholder="Nome de usuário do Instagram">
+            <button class="button" onclick="verifyFollow()">OK</button>
+            <div id="loading" style="display: none;" class="loading"></div>
+        </div>
+
+        <div id="final-message" style="display: none;">
+            <h2>Obrigado! Aproveite o conteúdo!</h2>
+            <p><a href="#">Link 1</a></p>
+            <p><a href="#">Link 2</a></p>
+            <p><a href="#">Link 3</a></p>
         </div>
     </div>
 
@@ -129,13 +156,19 @@
     </footer>
 
     <script>
-        function connectInstagram() {
-            // Simulação de conexão e seguimento no Instagram
+        function alreadyFollowed() {
+            document.getElementById('follow-check').style.display = 'none';
+            document.getElementById('follow-confirmation').style.display = 'block';
+        }
+
+        function verifyFollow() {
+            document.querySelector('.button').style.display = 'none';
+            document.getElementById('loading').style.display = 'inline-block';
             setTimeout(() => {
-                document.getElementById('instagram-response').style.display = 'block';
-                document.getElementById('cd-access').style.display = 'block';
-                document.getElementById('connect-button').style.display = 'none';
-            }, 1000); // Simula um delay na resposta
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('follow-confirmation').style.display = 'none';
+                document.getElementById('final-message').style.display = 'block';
+            }, 2000);
         }
     </script>
 </body>
