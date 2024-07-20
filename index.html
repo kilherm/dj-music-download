@@ -47,11 +47,32 @@
             margin-top: 20px;
             font-size: 14px;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        #access-cds {
+            display: none;
+        }
+        .error-message {
+            color: #FF0000;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- Logo -->
+    <a target="_blank" href="https://github.com/kilherm/dj-music-download/">
+        <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png" alt="Logo" width="150" height="150" />
+    </a>
+
+    <!-- Hero Image -->
+    <a target="_blank" href="https://github.com/kilherm/dj-music-download/">
+        <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" alt="Hero Image" width="340" />
+    </a>
+
     <h1>Bem-vindo ao Brabo do Mega!</h1>
     <p>Siga nosso perfil no Instagram para acessar os CDs exclusivos.</p>
     <a href="https://www.instagram.com/djguiialves/" target="_blank">
@@ -60,11 +81,12 @@
     <p>Depois de seguir, retorne e clique no botão abaixo para confirmar:</p>
 
     <form id="confirm-form">
-        <input type="text" placeholder="Seu nome de usuário Instagram" required>
+        <input type="text" id="username" placeholder="Seu nome de usuário Instagram" required>
         <button type="submit">Confirmar e Acessar CDs</button>
+        <p id="error-message" class="error-message"></p>
     </form>
 
-    <div id="access-cds" style="display:none;">
+    <div id="access-cds">
         <h2>Acesso aos CDs:</h2>
         <a href="https://linkparaocd1.com" style="color: #E9703E;">CD 1</a><br>
         <a href="https://linkparaocd2.com" style="color: #E9703E;">CD 2</a><br>
@@ -79,8 +101,20 @@
 <script>
     document.getElementById('confirm-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        document.getElementById('access-cds').style.display = 'block';
-        document.getElementById('confirm-form').style.display = 'none';
+        var username = document.getElementById('username').value.trim();
+        var errorMessage = document.getElementById('error-message');
+        
+        if (username) {
+            // Simula a verificação real
+            // Em um cenário real, aqui você verificaria se o usuário realmente seguiu o perfil
+
+            // Oculta o formulário e mostra o acesso aos CDs
+            document.getElementById('access-cds').style.display = 'block';
+            document.getElementById('confirm-form').style.display = 'none';
+            errorMessage.textContent = '';
+        } else {
+            errorMessage.textContent = 'Por favor, insira um nome de usuário válido.';
+        }
     });
 </script>
 
