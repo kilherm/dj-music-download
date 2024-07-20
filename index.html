@@ -78,6 +78,15 @@
             width: 100%;
             outline: none;
         }
+        /* Blink text effect */
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .blink-text {
+            animation: blink 1s step-start infinite;
+        }
     </style>
 </head>
 <body>
@@ -114,7 +123,7 @@
                         <a target="_blank" style="text-decoration: none;"
                            href="https://github.com/kilherm/dj-music-download/">
                             <img border="0" vspace="0" hspace="0"
-                                 src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png"
+                                 src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png"
                                  alt="Please enable images to view this content" title="Hero Image"
                                  width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
                         </a>
@@ -133,7 +142,7 @@
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 24px; font-weight: bold; line-height: 130%;
                         padding-top: 5px;
                         color: #FFFFFF;
-                        font-family: sans-serif;" class="header">
+                        font-family: sans-serif;" class="header blink-text">
                         Baixe agora mesmo os melhores CD's exclusivos!
                     </td>
                 </tr>
@@ -165,12 +174,11 @@
                         </a>
                     </td>
                 </tr>
-                <!-- New image below the button -->
                 <tr>
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px; padding-bottom: 20px;">
                         <img border="0" vspace="0" hspace="0"
-                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png"
-                             alt="Hero Block" title="Hero Block"
+                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-white.png"
+                             alt="Hero White" title="Hero White"
                              width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
                     </td>
                 </tr>
