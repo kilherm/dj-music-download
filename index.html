@@ -87,6 +87,21 @@
         .blink-text {
             animation: blink 1s step-start infinite;
         }
+        /* Scrolling text effect */
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: scroll 10s linear infinite;
+            font-size: 14px;
+            color: #FFFFFF;
+            padding: 0 20px;
+        }
     </style>
 </head>
 <body>
@@ -123,8 +138,8 @@
                         <a target="_blank" style="text-decoration: none;"
                            href="https://github.com/kilherm/dj-music-download/">
                             <img border="0" vspace="0" hspace="0"
-                                 src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png"
-                                 alt="Please enable images to view this content" title="Hero Image"
+                                 src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png"
+                                 alt="Please enable images to view this content" title="Logo White"
                                  width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
                         </a>
                     </td>
@@ -176,10 +191,9 @@
                 </tr>
                 <tr>
                     <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px; padding-bottom: 20px;">
-                        <img border="0" vspace="0" hspace="0"
-                             src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-white.png"
-                             alt="Hero White" title="Hero White"
-                             width="340" style="width: 87.5%; max-width: 340px; color: #FFFFFF; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
+                        <div class="scrolling-text">
+                            Contato: (16) 98141-1776 - Instagram: @djguiialves
+                        </div>
                     </td>
                 </tr>
                 <tr>
