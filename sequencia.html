@@ -36,6 +36,9 @@
             border-radius: 5px;
             border: 1px solid #FFFFFF;
         }
+        .message {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -45,13 +48,18 @@
         <p>Se você já seguiu, coloque seu nome de usuário abaixo para verificar:</p>
         <input type="text" id="username" class="input-field" placeholder="Nome de usuário do Instagram">
         <button class="button" onclick="verificarSeguidor()">OK</button>
+        <div id="message" class="message"></div>
     </div>
     <script>
         function verificarSeguidor() {
             document.querySelector('button').innerText = 'Carregando...';
             setTimeout(function() {
                 document.querySelector('button').innerText = 'Obrigado! Aproveite o conteúdo!';
-                // Aqui você pode exibir os links dos CDs após a verificação
+                document.getElementById('message').innerHTML = `
+                    <p>Link 1</p>
+                    <p>Link 2</p>
+                    <p>Link 3</p>
+                `;
             }, 2000); // Tempo simulado de carregamento
         }
     </script>
