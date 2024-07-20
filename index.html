@@ -94,18 +94,18 @@
         <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0;" bgcolor="#2D3445">
             <!-- WRAPPER -->
             <table border="0" cellpadding="0" cellspacing="0" align="center"
-                   width="500" style="border-collapse: collapse; border-spacing: 0; padding: 0; width: inherit; max-width: 500px;" class="wrapper">
+                   width="100%" style="border-collapse: collapse; border-spacing: 0; padding: 0; width: 100%;" class="wrapper">
                 <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
+                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 0; padding-right: 0; width: 100%;
                         padding-top: 20px;
                         padding-bottom: 20px;">
                         <a target="_blank" style="text-decoration: none;"
                            href="https://github.com/kilherm/dj-music-download/">
                             <img border="0" vspace="0" hspace="0"
                                  src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/gif-banner-dj-guii-alves.gif"
-                                 width="150" height="150"
+                                 width="100%" height="auto"
                                  alt="Banner" title="Banner"
-                                 style="color: #FFFFFF; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
+                                 style="color: #FFFFFF; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; width: 100%; height: auto;" />
                         </a>
                     </td>
                 </tr>
@@ -166,49 +166,27 @@
                     </td>
                 </tr>
                 <tr>
-                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
-                        padding-top: 20px;" class="image">
-                        <a target="_blank" style="text-decoration: none;"
-                           href="https://github.com/kilherm/dj-music-download/">
-                            <img border="0" vspace="0" hspace="0"
-                                 src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/logo-white.png"
-                                 width="150" height="150"
-                                 alt="Banner" title="Banner"
-                                 style="color: #FFFFFF; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
-                        </a>
+                    <td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 40px; padding-bottom: 40px;" class="footer">
+                        <p style="font-size: 12px; color: #FFFFFF;">Se você estiver enfrentando problemas para visualizar esta mensagem, <a href="#" style="color: #E9703E;">clique aqui</a>.</p>
+                        <p style="font-size: 12px; color: #FFFFFF;">&copy; 2024 DJ Guii Alves. Todos os direitos reservados.</p>
+                        <audio controls>
+                            <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
                     </td>
                 </tr>
-                <!-- Outros elementos -->
             </table>
         </td>
     </tr>
 </table>
 
-<!-- Footer with audio player -->
-<div class="footer">
-    <audio id="background-music" controls autoplay loop>
-        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
-</div>
-
+<!-- Script to handle Instagram connection -->
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var audio = document.getElementById('background-music');
-        if (audio) {
-            audio.volume = 0.5; // Ajusta o volume para 50%
-        }
-    });
-
     function connectInstagram(event) {
         event.preventDefault();
-        // Redireciona para o Instagram
-        window.location.href = "https://www.instagram.com/djguiialves/";
-
-        // Abre sequencia.html após 5 segundos
-        setTimeout(function() {
-            window.open("https://kilherm.github.io/dj-music-download/sequencia.html", "_self");
-        }, 5000);
+        // Aqui você pode adicionar a lógica para conectar ao Instagram
+        // Por exemplo, abrir uma janela de login, mostrar uma mensagem de sucesso, etc.
+        alert('Funcionalidade de conexão com o Instagram ainda não implementada.');
     }
 </script>
 
