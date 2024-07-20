@@ -58,6 +58,21 @@
             color: #FF0000;
             font-size: 14px;
         }
+        .typewriter {
+            display: inline;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid orange;
+            animation: typing 4s steps(30, end), blink .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: orange; }
+        }
     </style>
 </head>
 <body>
@@ -73,8 +88,9 @@
         <img src="https://raw.githubusercontent.com/kilherm/dj-music-download/main/images/hero-block.png" alt="Hero Image" width="340" />
     </a>
 
-    <h1>Bem-vindo ao Brabo do Mega!</h1>
-    <p>Siga nosso perfil no Instagram para acessar os CDs exclusivos.</p>
+    <h1 class="typewriter">Bem-vindo ao Brabo do Mega!</h1>
+    <p id="typing-text" class="typewriter"></p>
+
     <a href="https://www.instagram.com/djguiialves/" target="_blank">
         <button>Siga no Instagram</button>
     </a>
@@ -99,22 +115,39 @@
 </footer>
 
 <script>
-    document.getElementById('confirm-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var username = document.getElementById('username').value.trim();
-        var errorMessage = document.getElementById('error-message');
-        
-        if (username) {
-            // Simula a verificação real
-            // Em um cenário real, aqui você verificaria se o usuário realmente seguiu o perfil
+    document.addEventListener('DOMContentLoaded', function() {
+        var text = "Siga nosso perfil no Instagram para acessar os CDs exclusivos.";
+        var index = 0;
+        var speed = 50; // Velocidade de digitação em milissegundos
+        var typingText = document.getElementById('typing-text');
 
-            // Oculta o formulário e mostra o acesso aos CDs
-            document.getElementById('access-cds').style.display = 'block';
-            document.getElementById('confirm-form').style.display = 'none';
-            errorMessage.textContent = '';
-        } else {
-            errorMessage.textContent = 'Por favor, insira um nome de usuário válido.';
+        function typeWriter() {
+            if (index < text.length) {
+                typingText.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, speed);
+            }
         }
+
+        typeWriter();
+
+        document.getElementById('confirm-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('username').value.trim();
+            var errorMessage = document.getElementById('error-message');
+            
+            if (username) {
+                // Simula a verificação real
+                // Em um cenário real, aqui você verificaria se o usuário realmente seguiu o perfil
+
+                // Oculta o formulário e mostra o acesso aos CDs
+                document.getElementById('access-cds').style.display = 'block';
+                document.getElementById('confirm-form').style.display = 'none';
+                errorMessage.textContent = '';
+            } else {
+                errorMessage.textContent = 'Por favor, insira um nome de usuário válido.';
+            }
+        });
     });
 </script>
 
