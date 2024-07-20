@@ -10,9 +10,6 @@
         body {
             margin: 0;
             padding: 0;
-            min-width: 100%;
-            width: 100% !important;
-            height: 100% !important;
             background-color: #f0f0f0; /* Fundo cinza claro */
             color: #FFFFFF;
             font-family: Arial, sans-serif;
@@ -22,10 +19,16 @@
             max-width: 800px;
             margin: auto;
             padding: 20px;
-            background-color: rgba(45, 52, 69, 0.9); /* Fundo preto transparente */
+            background-color: rgba(45, 52, 69, 0.8); /* Fundo preto transparente */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar o container */
             text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
         h1, h2 {
             color: #E9703E;
@@ -79,7 +82,7 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid #E9703E;
-            animation: typing 4s steps(30, end) infinite;
+            animation: typing 4s steps(30, end) 1;
         }
         .loading {
             border: 2px solid #E9703E;
@@ -113,7 +116,7 @@
     <!-- Music player -->
     <audio id="background-music" autoplay loop>
         <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
+        Seu navegador não suporta o elemento de áudio.
     </audio>
 
     <div class="container">
