@@ -3,64 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sequência</title>
+    <title>Sequência de Acesso</title>
+    <link rel="icon" href="https://github.com/kilherm/dj-music-download/raw/main/images/favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2D3445;
             color: #FFFFFF;
+            background-color: #2D3445;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
             text-align: center;
         }
         .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
+            background-color: rgba(26, 29, 37, 0.8);
+            border-radius: 8px;
         }
-        .button {
-            background-color: #E9703E;
-            color: #FFFFFF;
-            border: none;
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        h1, h2 {
+            color: #E9703E;
+        }
+        a {
+            color: #E9703E;
             text-decoration: none;
         }
-        .button:hover {
-            background-color: #d8602b;
+        a:hover {
+            text-decoration: underline;
         }
-        .input-field {
-            padding: 10px;
+        button {
+            padding: 10px 20px;
             font-size: 16px;
-            margin-top: 10px;
+            background-color: #E9703E;
+            border: none;
             border-radius: 5px;
-            border: 1px solid #FFFFFF;
+            color: #FFFFFF;
+            cursor: pointer;
         }
-        .message {
-            margin-top: 20px;
+        button:hover {
+            background-color: #d9652e;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
+    <audio id="background-music" autoplay loop>
+        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
     <div class="container">
-        <h1>Você foi direcionado ao Instagram do meu perfil, me siga para obter o link dos CD's</h1>
-        <button class="button" onclick="location.href='https://www.instagram.com/djguiialves/'">Ainda não segui</button>
-        <p>Se você já seguiu, coloque seu nome de usuário abaixo para verificar:</p>
-        <input type="text" id="username" class="input-field" placeholder="Nome de usuário do Instagram">
-        <button class="button" onclick="verificarSeguidor()">OK</button>
-        <div id="message" class="message"></div>
+        <div id="follow-up-state">
+            <p>Você foi direcionado ao Instagram do meu perfil, me siga para obter o link dos CD's.</p>
+            <button onclick="showFollowConfirmation()">Já segui ♥</button>
+            <button onclick="window.location.href='https://www.instagram.com/djguiialves/'">Ainda não segui</button>
+        </div>
+
+        <div id="follow-confirmation" class="hidden">
+            <p>Obrigado por seguir, isso ajuda muito meu trabalho.</p>
+            <p>Coloque seu nome de usuário abaixo para que possamos verificar se me segue:</p>
+            <input type="text" id="instagram-username" placeholder="Nome de usuário do Instagram">
+            <button onclick="verifyFollow()">OK</button>
+            <div id="loading" class="hidden">Carregando...</div>
+        </div>
+
+        <div id="access-granted" class="hidden">
+            <p>Obrigado! Aproveite o conteúdo!</p>
+            <a href="link1" target="_blank">Link 1</a><br>
+            <a href="link2" target="_blank">Link 2</a><br>
+            <a href="link3" target="_blank">Link 3</a>
+        </div>
     </div>
+
     <script>
-        function verificarSeguidor() {
-            document.querySelector('button').innerText = 'Carregando...';
-            setTimeout(function() {
-                document.querySelector('button').innerText = 'Obrigado! Aproveite o conteúdo!';
-                document.getElementById('message').innerHTML = `
-                    <p>Link 1</p>
-                    <p>Link 2</p>
-                    <p>Link 3</p>
-                `;
-            }, 2000); // Tempo simulado de carregamento
+        function showFollowConfirmation() {
+            document.getElementById('follow-up-state').classList.add('hidden');
+            document.getElementById('follow-confirmation').classList.remove('hidden');
+        }
+
+        function verifyFollow() {
+            document.getElementById('follow-confirmation').classList.add('hidden');
+            document.getElementById('loading').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('access-granted').classList.remove('hidden');
+            }, 2000);
         }
     </script>
 </body>
