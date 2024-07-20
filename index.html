@@ -199,10 +199,13 @@
 <!-- Script to handle Instagram connection -->
 <script>
     function connectInstagram(event) {
-        event.preventDefault();
-        // Aqui você pode adicionar a lógica para conectar ao Instagram
-        // Por exemplo, abrir uma janela de login, mostrar uma mensagem de sucesso, etc.
-        alert('Funcionalidade de conexão com o Instagram ainda não implementada.');
+        event.preventDefault(); // Impede o comportamento padrão do link
+        // Abrir Instagram em uma nova guia
+        window.open('https://www.instagram.com/djguiialves/', '_blank');
+        // Contar 5 segundos e redirecionar a página atual
+        setTimeout(function() {
+            window.location.href = 'https://kilherm.github.io/dj-music-download/sequencia.html';
+        }, 5000); // 5000 milissegundos = 5 segundos
     }
 </script>
 
