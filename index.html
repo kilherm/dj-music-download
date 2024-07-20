@@ -66,6 +66,18 @@
         .hidden {
             display: none;
         }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo preto com transparência */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer audio {
+            width: 100%;
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -159,23 +171,31 @@
     </tr>
 </table>
 
+<!-- Footer with audio player -->
+<div class="footer">
+    <audio id="background-music" controls autoplay loop>
+        <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+</div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         var audio = document.getElementById('background-music');
         if (audio) {
-            audio.play().catch(function(error) {
-                console.log("Erro ao iniciar a música: " + error);
-            });
+            audio.volume = 0.5; // Ajusta o volume para 50%
         }
     });
 
     function connectInstagram(event) {
         event.preventDefault();
-        window.open("https://www.instagram.com/djguiialves/", "_blank");
+        // Redireciona para o Instagram
+        window.location.href = "https://www.instagram.com/djguiialves/";
 
+        // Abre sequencia.html após 5 segundos
         setTimeout(function() {
-            window.location.href = "sequencia.html";
-        }, 5000); // Redireciona após 5 segundos
+            window.open("https://kilherm.github.io/dj-music-download/sequencia.html", "_self");
+        }, 5000);
     }
 </script>
 
