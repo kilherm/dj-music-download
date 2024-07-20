@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
     <title>O Brabo do Mega!</title>
     <style>
         /* Reset styles */
@@ -72,7 +73,7 @@
 <!-- Music player -->
 <audio id="background-music" autoplay loop>
     <source src="https://github.com/kilherm/dj-music-download/raw/main/audio/06-batatais-car-show-ed-10-anos-dj-guii-alves.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    Seu navegador não suporta o elemento de áudio.
 </audio>
 
 <!-- SECTION / BACKGROUND -->
@@ -160,4 +161,19 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        var audio = document.getElementById('background-music
+        var audio = document.getElementById('background-music');
+        if (audio) {
+            audio.play().catch(function(error) {
+                console.log("Erro ao iniciar a música: " + error);
+            });
+        }
+    });
+
+    function connectInstagram(event) {
+        event.preventDefault();
+        window.location.href = "https://api.instagram.com/oauth/authorize/?client_id=SEU_ID_DO_CLIENTE&redirect_uri=SEU_URL_DE_REDIRECIONAMENTO&response_type=code";
+    }
+</script>
+
+</body>
+</html>
