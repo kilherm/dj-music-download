@@ -71,7 +71,7 @@
     if (response.status === 'connected') {
       // Usuário está conectado ao Facebook e ao seu aplicativo
       const accessToken = response.authResponse.accessToken;
-      const redirectUri = 'https://kilherm.github.io/dj-music-download/';
+      const redirectUri = 'https://kilherm.github.io/dj-music-download/sequencia/';
       const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id={your-client-id}&redirect_uri=${redirectUri}&scope=user_profile,user_media&response_type=code`;
 
       window.location.href = instagramAuthUrl;
