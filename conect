@@ -41,8 +41,8 @@
     <script>
         document.getElementById('connect-instagram').addEventListener('click', function(event) {
             event.preventDefault();
-            const clientId = 'YOUR_CLIENT_ID'; // Substitua pelo seu Client ID
-            const redirectUri = 'https://your-redirect-uri.com'; // Substitua pela sua URL de redirecionamento
+            const clientId = '1232270261472527'; // Substitua pelo seu Client ID
+            const redirectUri = 'https://kilherm.github.io/dj-music-download/sequencia/'; // Substitua pela sua URL de redirecionamento
             const scope = 'user_profile,user_media';
             const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=code`;
             window.location.href = instagramAuthUrl;
