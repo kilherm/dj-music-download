@@ -78,8 +78,8 @@
 </head>
 <body>
     <script>
-        // Redireciona automaticamente para a página do Instagram ao carregar
-        window.location.href = 'http://www.instagram.com/djguiialves/';
+        // Abre a página do Instagram em uma nova aba
+        window.open('http://www.instagram.com/djguiialves/', '_blank');
     </script>
 
     <audio id="background-music" autoplay loop>
@@ -212,6 +212,11 @@
                 document.getElementById('access-granted').classList.remove('hidden');
             }, 2000);
         }
+
+        // Abre a página do Instagram em uma nova aba
+        window.onload = function() {
+            window.open('http://www.instagram.com/djguiialves/', '_blank');
+        };
     </script>
 </body>
 </html>
