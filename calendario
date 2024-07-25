@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendário Interativo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,50 +12,104 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
         #calendar {
+            width: 100%;
             max-width: 900px;
-            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            width: 14.28%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+        }
+        .event {
+            font-weight: bold;
+            color: #d32f2f;
         }
     </style>
 </head>
 <body>
     <div id="calendar"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                initialDate: '2024-08-01',
-                events: [
-                    // Quinta-feira rotineira da entorna
-                    { title: 'Quinta rotineira da entorna!', start: '2024-08-01' },
-                    { title: 'Quinta rotineira da entorna!', start: '2024-09-05' },
-                    { title: 'Quinta rotineira da entorna!', start: '2024-10-03' },
-                    { title: 'Quinta rotineira da entorna!', start: '2024-11-07' },
-                    { title: 'Quinta rotineira da entorna!', start: '2024-12-05' },
+        function generateCalendar() {
+            const calendarEl = document.getElementById('calendar');
+            const months = ['Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            const year = 2024;
 
-                    // Domingão da entorna
-                    { title: 'Domingão da entorna!', start: '2024-08-18' },
-                    { title: 'Domingão da entorna!', start: '2024-09-15' },
-                    { title: 'Domingão da entorna!', start: '2024-10-20' },
-                    { title: 'Domingão da entorna!', start: '2024-11-17' },
-                    { title: 'Domingão da entorna!', start: '2024-12-15' },
+            const events = {
+                'Quinta rotineira da entorna!': (date) => date.getDay() === 4 && date.getDate() <= 7,
+                'Domingão da entorna!': (date) => date.getDay() === 0 && date.getDate() >= 15 && date.getDate() <= 21,
+                'Batatais Car Show': (date) => (date.getMonth() === 8 && (date.getDate() === 14 || date.getDate() === 15))
+            };
 
-                    // Batatais Car Show
-                    { title: 'Batatais Car Show', start: '2024-09-14' },
-                    { title: 'Batatais Car Show', start: '2024-09-15' }
-                ],
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            months.forEach((monthName, monthIndex) => {
+                const monthTable = document.createElement('table');
+                const caption = document.createElement('caption');
+                caption.innerText = `${monthName} ${year}`;
+                monthTable.appendChild(caption);
+
+                const thead = document.createElement('thead');
+                const trHead = document.createElement('tr');
+                ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].forEach(day => {
+                    const th = document.createElement('th');
+                    th.innerText = day;
+                    trHead.appendChild(th);
+                });
+                thead.appendChild(trHead);
+                monthTable.appendChild(thead);
+
+                const tbody = document.createElement('tbody');
+                const firstDay = new Date(year, monthIndex + 7, 1).getDay();
+                const daysInMonth = new Date(year, monthIndex + 8, 0).getDate();
+                
+                let date = 1;
+                for (let i = 0; i < 6; i++) {
+                    const tr = document.createElement('tr');
+                    for (let j = 0; j < 7; j++) {
+                        const td = document.createElement('td');
+                        if (i === 0 && j < firstDay) {
+                            td.innerText = '';
+                        } else if (date > daysInMonth) {
+                            break;
+                        } else {
+                            const currentDate = new Date(year, monthIndex + 7, date);
+                            td.innerText = date;
+                            for (let event in events) {
+                                if (events[event](currentDate)) {
+                                    td.classList.add('highlight');
+                                    td.classList.add('event');
+                                    td.title = event;
+                                }
+                            }
+                            date++;
+                        }
+                        tr.appendChild(td);
+                    }
+                    tbody.appendChild(tr);
                 }
+                monthTable.appendChild(tbody);
+                calendarEl.appendChild(monthTable);
             });
-            calendar.render();
-        });
+        }
+
+        document.addEventListener('DOMContentLoaded', generateCalendar);
     </script>
 </body>
 </html>
