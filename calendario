@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Interativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #calendar {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="calendar"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/main.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                initialDate: '2024-08-01',
+                events: [
+                    // Quinta-feira rotineira da entorna
+                    { title: 'Quinta rotineira da entorna!', start: '2024-08-01' },
+                    { title: 'Quinta rotineira da entorna!', start: '2024-09-05' },
+                    { title: 'Quinta rotineira da entorna!', start: '2024-10-03' },
+                    { title: 'Quinta rotineira da entorna!', start: '2024-11-07' },
+                    { title: 'Quinta rotineira da entorna!', start: '2024-12-05' },
+
+                    // Domingão da entorna
+                    { title: 'Domingão da entorna!', start: '2024-08-18' },
+                    { title: 'Domingão da entorna!', start: '2024-09-15' },
+                    { title: 'Domingão da entorna!', start: '2024-10-20' },
+                    { title: 'Domingão da entorna!', start: '2024-11-17' },
+                    { title: 'Domingão da entorna!', start: '2024-12-15' },
+
+                    // Batatais Car Show
+                    { title: 'Batatais Car Show', start: '2024-09-14' },
+                    { title: 'Batatais Car Show', start: '2024-09-15' }
+                ],
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }
+            });
+            calendar.render();
+        });
+    </script>
+</body>
+</html>
